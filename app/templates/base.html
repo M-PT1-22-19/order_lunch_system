@@ -54,18 +54,8 @@
                             </div>
                             <p>Меню</p>
                             <div class="clearfix"></div>
-                            <ul class="menu_1_left_nav">
-                                <li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>Картошка
-                                    фри<span> 4 BYN></span></a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>ЧикенБургер<span>10 BYN</span></a>
-                                </li>
-                                <li><a href="#"><i class="glyphicon glyphicon-camera"
-                                                   aria-hidden="true"></i>Чизбургер<span>9 BYN</span></a></li>
-                                <li><a href="#"><i class="glyphicon glyphicon-facetime-video" aria-hidden="true"></i>Кока_кола<span>3 BYN</span></a>
-                                </li>
-                                <li><a href="#"><i class="glyphicon glyphicon-cog" aria-hidden="true"></i>Салат
-                                    Цезарь<span>6 BYN</span></a></li>
-                            </ul>
+                            {% block menu_and_order %}
+                            {% endblock menu_and_order %}
                         </div>
                         <form>
                             <input type="submit" value="Оформить Заказ">
