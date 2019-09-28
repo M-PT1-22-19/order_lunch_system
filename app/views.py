@@ -5,5 +5,5 @@ from app.models import Order
 
 
 class MenuListView(generic.ListView):
-    queryset = Order.objects
+    queryset = Order.objects.all()
     template_name = 'index.html'
