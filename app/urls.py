@@ -1,6 +1,6 @@
 from . import views     # импортируем все views
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('', views.MenuListView, name='home'),
+    path('', views.MenuListView.as_view(), name='home'),
 ]
