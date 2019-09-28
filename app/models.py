@@ -9,12 +9,28 @@ class Order(models.Model):
                                      db_index=True, verbose_name='Дата/Время')
     user = models.CharField(max_length=50, verbose_name='Имя')
     email = models.EmailField(verbose_name='Email')
-    product = models.TextField(verbose_name='Заказ')
+    name_product = models.ForeignKey('Product', related_name='product', verbose_name='Меню',
+                                     null=True, on_delete=models.CASCADE)
+    # product = models.TextField(verbose_name='Заказ')
     count = models.IntegerField(verbose_name='Количество')
-    paid = models.FloatField(verbose_name='Оплачено')
+    # paid = models.IntegerField(verbose_name='Оплачено')
+    price = models.ForeignKey('Product', related_name='paid', verbose_name='Оплачено', on_delete=models.PROTECT,
+                              default=0)
     comment = models.TextField(verbose_name='Комментарий')
 
     class Meta:
         verbose_name_plural = 'Заказы'
         verbose_name = 'Заказ'
         ordering = ['-published']
+
+
+class Product(models.Model):
+    name_product = models.CharField(max_length=100)
+    price = models.IntegerField(verbose_name='Цена, BYN')
+
+    def __str__(self):
+        return self.name_product
+
+    class Meta:
+        verbose_name = 'Меню'
+
