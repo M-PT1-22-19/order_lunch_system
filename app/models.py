@@ -5,7 +5,8 @@ from django.db import models
 
 
 class Order(models.Model):
-    published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Дата/Время')
+    published = models.DateTimeField(auto_now_add=True,
+                                     db_index=True, verbose_name='Дата/Время')
     user = models.CharField(max_length=50, verbose_name='Имя')
     email = models.EmailField(verbose_name='Email')
     product = models.TextField(verbose_name='Заказ')
