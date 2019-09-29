@@ -8,9 +8,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
     font-size: 100%;
 	font-family: 'Open Sans', sans-serif;
-}
-body {
-	background: url('../images/TomatosByAnrew.jpg') center no-repeat;
+	background-image: url('../images/VeganByDzmitry.jpg');
+	/*background-image: url('../images/TomatosByAnrew.jpg');*/
 	background-size: 100%;
 }
 h1,h2,h3,h4,h5,h6,a{
