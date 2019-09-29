@@ -31,7 +31,7 @@ body a:hover{
 	padding:8em 0;
 }
 .ui-kit h1 i {
-    top: .3em;
+    top: .2em;
 }
 .ui-kit h1{
 	font-size: 4em;
@@ -674,6 +674,11 @@ span.menu_1_left3 i{
 .glyphicon-envelope {
 	top: 2.7em !important;
 	padding: 0.6em 1em !important;
+}
+.glyphicon-list-alt {
+	top: 2.7em;
+	height: 1.1em;
+	padding: 0 0.2em;
 }
 .log-check {
     margin: 1em 0 2em;
