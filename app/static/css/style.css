@@ -7,13 +7,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html, body{
     font-size: 100%;
-	/*background:#c7b39b url(F:\it-academy\food_project\Red UI Kit\1.jpg);*/
 	font-family: 'Open Sans', sans-serif;
+	background-image: url('../images/VeganByDzmitry.jpg');
+	/*background-image: url('../images/TomatosByAnrew.jpg');*/
+	background-size: 100%;
 }
 h1,h2,h3,h4,h5,h6,a{
-	margin:0;
+	margin:0;	
 	font-family: 'Raleway', sans-serif;
-}
+}	
 p{
 	margin:0;
 }
@@ -29,7 +31,7 @@ body a:hover{
 	padding:8em 0;
 }
 .ui-kit h1 i {
-    top: .3em;
+    top: .2em;
 }
 .ui-kit h1{
 	font-size: 4em;
@@ -133,11 +135,11 @@ body a:hover{
 	background: url("../images/2.png") no-repeat 1px 2px;
 	top: 5px;
     left: 5px;
-	width: 15px;
+	width: 15px;																																																																																													
 	height: 15px;
-	font: normal 12px/16px FontAwesome;
+	font: normal 12px/16px FontAwesome;																																						
 	text-align: center;
-}
+}					
 .checkbox input + i:after {
 	position: absolute;
 	opacity: 0;
@@ -160,7 +162,7 @@ body a:hover{
 .ckeck-bg{
 	position: relative;
     min-height: 35px;
-    margin: 2em 0;
+    margin: 0 0;
 }
 .checkbox-form input[type="submit"] {
   border: none;
@@ -172,7 +174,7 @@ body a:hover{
   font-weight: 600;
   margin: 1em 0 0 0;
   -webkit-appearance: none;
-  background:#800080;
+  background:#B687BF;
   transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-o-transition: 0.5s all;
@@ -184,7 +186,7 @@ body a:hover{
     margin-left: 4em;
 }
 .checkbox-form input[type="submit"]:hover{
-	background:#800080;
+	background:#F1C40F;
 	color:#FFF;
 }
 label.checkbox {
@@ -195,7 +197,7 @@ label.checkbox {
 	outline:none;
 	border:none;
 	width:100%;
-	background:#800080;
+	background:#f3a1a1;
 	color:#fff;
 	font-size: 25px;
     letter-spacing: 2px;
@@ -238,7 +240,7 @@ span.menu_1_left{
 	box-shadow: 0px -3px 21px #BCB6B6;
 }
 ul.menu_1_left_nav li{
-	list-style:none;
+	list-style:none;	
 }
 ul.menu_1_left_nav li a{
 	display: block;
@@ -312,7 +314,7 @@ span.menu_1_left1{
 	box-shadow: 0px -4px 15px -2px #E9E9E9;
 }
 ul.menu_1_left_nav1 li{
-	list-style:none;
+	list-style:none;	
 }
 ul.menu_1_left_nav1 li a{
 	display: block;
@@ -485,7 +487,7 @@ span.menu_1_left2{
     background-color: #F78181;
 }
 ul.menu_1_left_nav2 li{
-	list-style:none;
+	list-style:none;	
 	background-color: #fff;
 }
 ul.menu_1_left_nav2 li a{
@@ -549,7 +551,7 @@ span.menu_1_left3{
     background-color: #F78181;
 }
 ul.menu_1_left_nav3 li{
-	list-style:none;
+	list-style:none;	
 	background-color: #fff;
 }
 ul.menu_1_left_nav3 li a{
@@ -636,7 +638,7 @@ span.menu_1_left3 i{
 	outline:none;
 	border:none;
 	width:100%;
-	background:#800080;
+	background:#f3a1a1;
 	color:#fff;
 	font-size: 25px;
     letter-spacing: 2px;
@@ -652,10 +654,10 @@ span.menu_1_left3 i{
 	-o-transition:.5s all;
 }
 .login-form1 input[type="submit"]:hover{
-	background:#800080;
+	background:#E15B5B;
 }
 .login-form input[type="submit"]:hover{
-	background:#800080;
+	background:#E15B5B;
 }
 .login-form1 form span{
 	font-size: 1.2em;
@@ -668,6 +670,15 @@ span.menu_1_left3 i{
 .glyphicon-lock{
 	top: 2.7em !important;
     padding: 0.6em 1em !important;
+}
+.glyphicon-envelope {
+	top: 2.7em !important;
+	padding: 0.6em 1em !important;
+}
+.glyphicon-list-alt {
+	top: 2.7em;
+	height: 1.1em;
+	padding: 0 0.2em;
 }
 .log-check {
     margin: 1em 0 2em;
@@ -1358,7 +1369,7 @@ img.parrot{
 		font-size: 1.5em;
 		padding: 0.5em 2em;
 	}
-
+	
 	.menu3 p, .menu4 p {
 		margin: 1em 0 0 4em;
 		font-size: 14px;

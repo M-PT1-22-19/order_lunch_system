@@ -1,12 +1,12 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
-from app.models import Order
+from app.models import Product, Order
 
 # Creating views here
 
 
 class MenuListView(generic.ListView):
-    queryset = Order.objects
+    queryset = Product.objects.all()
     template_name = 'index.html'
 
 class PostDetail(generic.DetailView):
