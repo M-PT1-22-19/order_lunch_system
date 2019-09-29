@@ -7,8 +7,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html, body{
     font-size: 100%;
-	/*background:#c7b39b url(F:\it-academy\food_project\Red UI Kit\1.jpg);*/
 	font-family: 'Open Sans', sans-serif;
+}
+body {
+	background: url('../images/TomatosByAnrew.jpg') center no-repeat;
+	background-size: 100%;
 }
 h1,h2,h3,h4,h5,h6,a{
 	margin:0;

@@ -4,8 +4,8 @@ from django import forms
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('published', 'user', 'email', 'name_product', 'count', 'price', 'comment')
-    list_display_links = ('name_product', 'count', 'price')
+    list_display = ('published', 'user', 'email', 'name_product', 'count', 'summary', 'comment')
+    list_display_links = ('user', 'name_product', 'count', 'summary')
     search_fields = ('published', 'user')
 
 

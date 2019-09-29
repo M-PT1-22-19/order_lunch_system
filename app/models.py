@@ -16,7 +16,7 @@ class Order(models.Model):
     # paid = models.IntegerField(verbose_name='Оплачено')
     # price = models.ForeignKey('Product', related_name='paid', verbose_name='Оплачено', on_delete=models.PROTECT,
     #                           default='name_product.price')
-    price = models.IntegerField(verbose_name='Оплачено')
+    summary = models.IntegerField(verbose_name='Оплачено', default=1)
     comment = models.TextField(verbose_name='Комментарий')
 
     class Meta:

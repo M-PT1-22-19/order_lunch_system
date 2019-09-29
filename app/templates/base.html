@@ -1,31 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Заказ Еды | Home</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!-- //for-mobile-apps -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="../static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- js -->
-    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="../static/js/jquery-1.11.1.min.js"></script>
     <!-- //js -->
     <!-- radio-buttons -->
-    <link rel="stylesheet" href="css/sky-forms.css">
+    <link rel="stylesheet" href="../static/css/sky-forms.css">
     <!-- //radio-buttons -->
     <link href='//fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,900,800' rel='stylesheet'
           type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
           rel='stylesheet' type='text/css'>
 </head>
-<style>
-    body {
-
-        background: url('/1.jpg') center no-repeat;
-        background-size: 100%;
-    }
-</style>
 
 <body>
 <!-- ui-kit -->
@@ -54,8 +47,11 @@
                             </div>
                             <p>Меню</p>
                             <div class="clearfix"></div>
-                            {% block menu_and_order %}
-                            {% endblock menu_and_order %}
+							<ul class="menu_1_left_nav">
+                                {% block menu_and_order %}
+                                {% endblock menu_and_order %}
+                            </ul>
+
                         </div>
                         <form>
                             <input type="submit" value="Оформить Заказ">
