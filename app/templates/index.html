@@ -7,7 +7,13 @@
 {# order_list должен быть виден только в админке   #}
 {# без авторизации надо показывать меню (список продуктов)   #}
     {% for item in product_list %}
-        <li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i>{{ item.name_product }} | {{ item.price }}</a></li>
+        <li>
+            <a href="#">
+                <i class="glyphicon glyphicon-unchecked" aria-hidden="true"></i>
+                {{ item.name_product }} | <i>price: {{ item.price }} byn</i>
+                <span>1</span>
+            </a>
+        </li>
     {% endfor %}
 
 {% endblock menu_and_order %}

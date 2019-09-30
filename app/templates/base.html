@@ -27,33 +27,51 @@
             <div class="ui-kit-grids">
                 <div class="col-md-6 ui-kit-grid-left">
                     <div class="login-form">
-                        <form>
+                        <form method="POST">{% csrf_token %}
+                            {{ form }}
                             <input type="text"
-                                   value="Name"
+                                   name="user"
+                                   value="user"
                                    onfocus="this.value = '';"
-                                   onblur="if (this.value == '') {this.value = 'Name';}"
+                                   onblur="if (this.value == '') {this.value = 'user';}"
                                    required="">
-                            <input type="email" value="Email Address" onfocus="this.value = '';"
-                                   onblur="if (this.value == '') {this.value = 'Email Address';}" required="">
-                        </form>
+                            <input type="email"
+                                   name="email"
+                                   value="email"
+                                   onfocus="this.value = '';"
+                                   onblur="if (this.value == '') {this.value = 'email';}" required="">
 
-                        <div class="ckeck-bg">
-                            <div class="checkbox-form">
-                                <div class="check-left">
-                                    <div class="check">
-                                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Remember
-                                            me</label>
+                            <div class="ckeck-bg">
+                                <div class="checkbox-form">
+                                    <div class="check-left">
+                                        <div class="check">
+                                            <label class="checkbox">
+                                                <input type="checkbox"
+                                                       name="check_remember"
+                                                       checked="">
+                                                <i> </i>
+                                                Remember me
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="check-right">
-                                    <div class="check">
-                                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Save
-                                            Password</label>
+                                    <div class="check-right">
+                                        <div class="check">
+                                            <label class="checkbox">
+                                                <input type="checkbox"
+                                                       name="check_savepass"
+                                                       checked="">
+                                                <i> </i>
+                                                Save Password
+                                            </label>
+                                        </div>
                                     </div>
+                                    <div class="clearfix"></div>
                                 </div>
-                                <div class="clearfix"></div>
                             </div>
-                        </div>
+
+                            <input type="submit" value="SUBMIT">
+
+                        </form>
                     </div>
 
                     {#        Оставляем - основное меню            #}
@@ -89,14 +107,7 @@
                             </div>
                         </section>
                     </form>
-
-                    {#     Кнопка Submit       #}
-                    <form class="login-form">
-                        <input type="submit" value="SUBMIT">
-                    </form>
                 </div>
-
-
 
                 <div class="col-md-6 ui-kit-grid-right">
                     <div class="login-form1">

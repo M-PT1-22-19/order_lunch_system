@@ -1,32 +1,34 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
 from app.models import Product, Order
-from .forms import ProductForm
+from .forms import ProductForm, OrderForm
 
 # Creating views here
 
 
-class MenuListView(generic.ListView):
-    queryset = Product.objects.all()
-    template_name = 'index.html'
+# class MenuListView(generic.ListView):
+#     queryset = Product.objects.all()
+#     template_name = 'index.html'
 
 ## Детализация пункта меню
 # class ProductDetail(generic.DetailView):
 #     model = Order
 #     template_name = 'product_detail.html'
 
-# # Вот эту вьюху надо запускать
-# def add_item_to_order(request):
-#     queryset = Product.objects.all()
-#     if request.method == "POST":    # при начальном открытии "GET"
-#         form = ProductForm(request.POST)
-#         if form.is_valid():
-#             order = form.save(commit=False)
+# Вот эту вьюху надо запускать
+def add_item_to_order(request):
+    queryset = Product.objects.all()
+    if request.method == "POST":    # при начальном открытии "GET"
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.user = form.user
+            order.email = form.email
 #             # order.summary = order.count * order.name_product.price
 #             # order.save()
-#             return render('index.html', {'queryset': queryset})
-#     else:                             # при начальном открытии "GET"
-#       return render(request, 'index.html', {'product_list': queryset})
+        return render(request, 'index.html', {'product_list': queryset})
+    else:                             # при начальном открытии "GET"
+        return render(request, 'index.html', {'product_list': queryset})
 
 
 ## выдрано из другого проекта
