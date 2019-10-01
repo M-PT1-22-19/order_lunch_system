@@ -6,11 +6,9 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 html, body{
-    font-size: 100%;
 	font-family: 'Open Sans', sans-serif;
 	background-image: url('../images/VeganByDzmitry.jpg');
-	/*background-image: url('../images/TomatosByAnrew.jpg');*/
-	background-size: 100%;
+	max-width: 1600px;
 }
 h1,h2,h3,h4,h5,h6,a{
 	margin:0;	
@@ -711,14 +709,14 @@ span.menu_1_left3 i{
 .timothy-and-icons{
 	margin:4em 0 6em;
 	background:#fff;
-	width:100%;
+	width:1200px;
 	padding:4em 2em;
 	border-left:5px solid #f3a1a1;
 	box-shadow: -1px 0px 15px #C66E6E;
 }
 .timothy-and-icons-left{
 	float:left;
-	width:40%;
+	width:0%;
 	margin:0 auto;
 }
 .timothy-and-icons-right{
