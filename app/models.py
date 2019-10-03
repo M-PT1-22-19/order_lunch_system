@@ -26,7 +26,9 @@ class Order(models.Model):
 class Product(models.Model):
     slug = models.SlugField(max_length=200, unique=True, default=uuid.uuid1)
     name_product = models.CharField(max_length=100)
+    count = models.IntegerField(verbose_name='Количество', default=1)
     price = models.IntegerField(verbose_name='Цена, BYN')
+
 
     def __str__(self):
         return self.name_product
