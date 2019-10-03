@@ -69,30 +69,33 @@
                                 </div>
                             </div>
 
-                            <input type="submit" value="SUBMIT">
+                            {#        Оставляем - основное меню            #}
+                            <div class="men-icon">
+                                <div class="menu-nav1">
+                                    <span class="menu_1_left"><i class="glyphicon glyphicon-hand-right"
+                                                                 aria-hidden="true"></i></span>
+                                    <script>
+                                        $("span.menu_1_left").click(function () {
+                                            $("ul.menu_1_left_nav").slideToggle("slow", function () {
+                                                // Animation complete.
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                                <p>MENU</p>
+                                <div class="clearfix"></div>
+                                <ul class="menu_1_left_nav">
+                                    {% block menu_and_order %}
+                                    {% endblock menu_and_order %}
+                                </ul>
+                            </div>
 
+                            <input type="submit" value="SUBMIT">
+                        
                         </form>
                     </div>
 
-                    {#        Оставляем - основное меню            #}
-                    <div class="men-icon">
-                        <div class="menu-nav1">
-                            <span class="menu_1_left"><i class="glyphicon glyphicon-hand-right" aria-hidden="true"></i></span>
-                            <script>
-                                $("span.menu_1_left").click(function () {
-                                    $("ul.menu_1_left_nav").slideToggle("slow", function () {
-                                        // Animation complete.
-                                    });
-                                });
-                            </script>
-                        </div>
-                        <p>MENU</p>
-                        <div class="clearfix"></div>
-                        <ul class="menu_1_left_nav">
-                            {% block menu_and_order %}
-                            {% endblock menu_and_order %}
-                        </ul>
-                    </div>
+
 
                     {#      Оставляем варианты заказа         #}
                     <form action="" class="sky-form">
@@ -171,8 +174,7 @@
 
             {#      оставляем      #}
             <div class="footer-bottom">
-                <p>Copyright © 2015 Red Ui Kit. All rights reserved | Template by <a
-                        href="http://w3layouts.com">W3layouts</a></p>
+                <p>Dream Team Project </p>
             </div>
         </div>
     </div>

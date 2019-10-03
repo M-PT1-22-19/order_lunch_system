@@ -1,33 +1,27 @@
-from django.shortcuts import get_object_or_404, redirect, render
-from django.views import generic
+from django.shortcuts import render, redirect
 from app.models import Product, CheckList
-from .forms import ProductForm, OrderForm, CheckListform
+from .forms import OrderForm, CheckListForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 # Creating views here
 
 
-# class MenuListView(generic.ListView):
-#     queryset = Product.objects.all()
-#     template_name = 'index.html'
-
-## Детализация пункта меню
-# class ProductDetail(generic.DetailView):
-#     model = Order
-#     template_name = 'product_detail.html'
-
-# Вот эту вьюху надо запускать
 def add_item_to_order(request):
     queryset = Product.objects.all()
-    if request.method == "POST":    # при начальном открытии "GET"
+    if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
+            product_uid = form.data['product_uid']
+            product = Product.objects.get(slug__iexact=product_uid)
             order = form.save(commit=False)
-            order.user = form.user
-            order.email = form.email
-#             # order.summary = order.count * order.name_product.price
-#             # order.save()
+            order.name_product = product
+            order.summary = order.count * product.price
+            order.comment = "введен при заказе"
+            order.save()
+
         return render(request, 'index.html', {'product_list': queryset})
-    else:                             # при начальном открытии "GET"
+    else:
         return render(request, 'index.html', {'product_list': queryset})
 
 def show_checklist(request):
@@ -44,34 +38,28 @@ def show_checklist(request):
     else:
         return render(request, 'Order.html', {'order_list': queryset})
 
-## выдрано из другого проекта
-# def post_new(request):
-#     if request.method == "POST":
-#         form = PostForm(request.POST)
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}!')
+            return redirect('/admin/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'app/register.html', {'form': form})
+
+
+# def show_checklist(request):
+#     queryset = CheckList.objects.all()
+#     if request.method == 'POST':
+#         form = CheckListForm(request.POST)
 #         if form.is_valid():
-#             return_result = None                # сюда вставим результирующий словарь
-#             post = form.save(commit=False)
-#             if 'btn1' in request.POST:
-#                 content = post.Content
-#                 vowel_list = ['a', 'e', 'i', 'o', 'u', 'y']
-#                 consonant_list = []
-#                 count_vowel = 0
-#                 count_consonant = 0
-#                 for s in content:
-#                     if s in vowel_list:
-#                         count_vowel += 1
-#                     else:
-#                         count_consonant += 1
-#                 post.Count_vowel = count_vowel
-#                 post.Count_consonant = count_consonant
-#                 # post.save()                               # закомментировал, т.к. модель меня не интересует
-#                                                             # если надо сохранять объект, то коммент снять
-#                 return_result = {'form': form, 'Count_vowel': post.Count_vowel, 'Count_consonant': count_consonant}
-#                 # ключи этого словаря вставляются в результирующую страницу, в данном случае - index.html
-#
-#             elif 'btn2' in request.POST:
-#                 return_result = {'form': form, 'Some_other_result': 'xxxxxxxxx'}
-#
-#             return render(request, 'index.html', return_result)
+#             table = form.save(commit=False)
+#             table.name_product = form.name_product
+#             table.user = form.user
+#             table.summury = form.summary
+#             table.comment = form.comment
+#         return render(request, 'order.html', {'order_list': queryset})
 #     else:
-#         form = PostForm()
+#         return render(request, 'order.html', {'order_list': queryset})

@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+import uuid
 
 # Create your models here.
 
@@ -8,13 +9,10 @@ class Order(models.Model):
                                      db_index=True, verbose_name='Дата/Время')
     user = models.CharField(max_length=50, verbose_name='Имя')
     email = models.EmailField(verbose_name='Email')
-    name_product = models.ForeignKey('Product', related_name='product', verbose_name='Меню',
+    name_product = models.ForeignKey('Product', related_name='product',
+                                     verbose_name='Меню',
                                      null=True, on_delete=models.CASCADE)
-    # product = models.TextField(verbose_name='Заказ')
     count = models.IntegerField(verbose_name='Количество', default=1)
-    # paid = models.IntegerField(verbose_name='Оплачено')
-    # price = models.ForeignKey('Product', related_name='paid', verbose_name='Оплачено', on_delete=models.PROTECT,
-    #                           default='name_product.price')
     summary = models.IntegerField(verbose_name='Оплачено', default=1)
     comment = models.TextField(verbose_name='Комментарий')
 
@@ -24,6 +22,7 @@ class Order(models.Model):
         ordering = ['-published']
 
 class Product(models.Model):
+    slug = models.SlugField(max_length=200, unique=True, default=uuid.uuid1)
     name_product = models.CharField(max_length=100)
     price = models.IntegerField(verbose_name='Цена, BYN')
 
@@ -39,5 +38,8 @@ class CheckList(models.Model):
     paid = Order.summary
     comment = Order.comment
 
-
-
+class CheckList(models.Model):
+    customer = Order.user
+    product = Order.name_product
+    paid = Order.summary
+    comment = Order.comment

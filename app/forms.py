@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Order
+from .models import Product, Order, CheckList
 
 
 class ProductForm(forms.ModelForm):
@@ -13,10 +13,11 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('user', 'email')
+        fields = ('user', 'email',)
 
-class CheckListform(forms.ModelForm):
+
+class CheckListForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('user', 'name_product', 'summary', 'comment')
+        fields = ('name_product', 'user', 'summary', 'comment',)
