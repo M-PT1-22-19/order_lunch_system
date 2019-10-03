@@ -4,7 +4,6 @@ import uuid
 
 # Create your models here.
 
-
 class Order(models.Model):
     published = models.DateTimeField(auto_now_add=True,
                                      db_index=True, verbose_name='Дата/Время')
@@ -22,7 +21,6 @@ class Order(models.Model):
         verbose_name = 'Заказ'
         ordering = ['-published']
 
-
 class Product(models.Model):
     slug = models.SlugField(max_length=200, unique=True, default=uuid.uuid1)
     name_product = models.CharField(max_length=100)
@@ -36,6 +34,11 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Меню'
 
+class CheckList(models.Model):
+    customer = Order.user
+    product = Order.name_product
+    paid = Order.summary
+    comment = Order.comment
 
 class CheckList(models.Model):
     customer = Order.user

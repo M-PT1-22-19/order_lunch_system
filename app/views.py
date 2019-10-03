@@ -26,6 +26,19 @@ def add_item_to_order(request):
     else:
         return render(request, 'base.html', {'product_list': queryset})
 
+def show_checklist(request):
+    queryset = CheckList.objects.all
+    if request.method == "POST":
+        form = CheckListform(request.POST)
+        if form.is_valid():
+            table = form.save(commit=False)
+            table.user = form.user
+            table.name_product = form.name_product
+            table.summary = form.summary
+            table.comment = form.comment
+        return render(request, 'Order.html', {'order_list': queryset})
+    else:
+        return render(request, 'Order.html', {'order_list': queryset})
 
 def register(request):
     if request.method == 'POST':
