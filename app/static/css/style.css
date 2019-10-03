@@ -260,6 +260,7 @@ ul.menu_1_left_nav li a:hover {
     background-color: #F4B4B4;
     color: #fff;
 }
+
 ul.menu_1_left_nav li a span{
 	display: inline-block;
     width: 30px;
@@ -271,6 +272,19 @@ ul.menu_1_left_nav li a span{
     margin: 0 0 0 20em;
     font-size: 15px;
     color: #fff;
+}
+/*моя добавка для span в меню*/
+ul.menu_1_left_nav span{
+	margin: 0 0 0 0 !important;
+	float: right;
+}
+/*моя добавка для input в меню*/
+.product_count{
+	padding: 0 0 0 0 !important;
+	margin: 0 0 0 0 !important;
+	float: right;
+	border-left: none !important;
+	box-shadow: none !important;
 }
 span.menu_1_left i{
     padding: .5em;
