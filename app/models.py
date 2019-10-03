@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+import uuid
 
 # Create your models here.
 
@@ -23,6 +24,7 @@ class Order(models.Model):
 
 
 class Product(models.Model):
+    slug = models.SlugField(max_length=200, unique=True, default=uuid.uuid1)
     name_product = models.CharField(max_length=100)
     price = models.IntegerField(verbose_name='Цена, BYN')
 
