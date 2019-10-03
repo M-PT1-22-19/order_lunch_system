@@ -3,7 +3,7 @@
 {#    Меню  #}
 {#///////////////////////////////////////////////////////////////////////////////////////////////////////////////////#}
 {% block menu_and_order %}
-
+ {{ form.as_p }}
 {# order_list должен быть виден только в админке   #}
 {# без авторизации надо показывать меню (список продуктов)   #}
     {% for item in product_list %}
@@ -17,7 +17,7 @@
                 </i>
                 {{ item.name_product }} | <i>price: {{ item.price }} byn</i>
                 <span >
-                    <input class="product_count" type="text" name="count" value=1>
+                    <input class="product_count" type="text" name="count" value={{ item.count }}>
 {#                    <input class="product_count" type="text" name="count" placeholder=1>#}
                 </span>
             </a>
