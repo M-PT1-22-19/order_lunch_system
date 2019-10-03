@@ -9,9 +9,17 @@
     {% for item in product_list %}
         <li>
             <a href="#">
-                <i class="glyphicon glyphicon-unchecked" aria-hidden="true"></i>
+{#                <i class="glyphicon glyphicon-unchecked">#}
+{#                </i>#}
+                <i class="glyphicon">
+                    <input type="checkbox" name="product_uid" value={{ item.slug }}>
+{#                    <input type="checkbox" name="{{ item.name_product }}" value="{{ item.name_product }}">#}
+                </i>
                 {{ item.name_product }} | <i>price: {{ item.price }} byn</i>
-                <span>1</span>
+                <span >
+                    <input class="product_count" type="text" name="count" value=1>
+{#                    <input class="product_count" type="text" name="count" placeholder=1>#}
+                </span>
             </a>
         </li>
     {% endfor %}
