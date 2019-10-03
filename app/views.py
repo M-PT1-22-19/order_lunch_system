@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from app.models import Product, CheckList
 from .forms import OrderForm, CheckListForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 # Creating views here
 
@@ -23,16 +25,28 @@ def add_item_to_order(request):
         return render(request, 'index.html', {'product_list': queryset})
 
 
-def show_checklist(request):
-    queryset = CheckList.objects.all()
+def register(request):
     if request.method == 'POST':
-        form = CheckListForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            table = form.save(commit=False)
-            table.name_product = form.name_product
-            table.user = form.user
-            table.summury = form.summary
-            table.comment = form.comment
-        return render(request, 'order.html', {'order_list': queryset})
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}!')
+            return redirect('/admin/')
     else:
-        return render(request, 'order.html', {'order_list': queryset})
+        form = UserCreationForm()
+    return render(request, 'app/register.html', {'form': form})
+
+
+# def show_checklist(request):
+#     queryset = CheckList.objects.all()
+#     if request.method == 'POST':
+#         form = CheckListForm(request.POST)
+#         if form.is_valid():
+#             table = form.save(commit=False)
+#             table.name_product = form.name_product
+#             table.user = form.user
+#             table.summury = form.summary
+#             table.comment = form.comment
+#         return render(request, 'order.html', {'order_list': queryset})
+#     else:
+#         return render(request, 'order.html', {'order_list': queryset})
