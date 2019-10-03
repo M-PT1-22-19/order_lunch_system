@@ -14,3 +14,9 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ('user', 'email')
+
+class CheckListform(forms.ModelForm):
+
+    class Meta:
+        model = Order
+        fields = ('user', 'name_product', 'summary', 'comment')
