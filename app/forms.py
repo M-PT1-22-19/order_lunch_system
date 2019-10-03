@@ -13,11 +13,11 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('user', 'email')
+        fields = ('user', 'email',)
 
 
 class CheckListForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('name_product', 'user', 'summary', 'comment')
+        fields = ('name_product', 'user', 'summary', 'comment',)
