@@ -85,8 +85,26 @@
                                 <p>MENU</p>
                                 <div class="clearfix"></div>
                                 <ul class="menu_1_left_nav">
-                                    {% block menu_and_order %}
-                                    {% endblock menu_and_order %}
+                                    {#                                    {% block menu_and_order %}#}
+                                    {#                                    {% endblock menu_and_order %}#}
+                                    {% for item in product_list %}
+                                        <li>
+                                            <a href="#">
+                                                {#                <i class="glyphicon glyphicon-unchecked">#}
+                                                {#                </i>#}
+
+                                                <i class="glyphicon">
+                                                    <input type="checkbox" name="product_uid" value={{ item.slug }}>
+                                                    {#                    <input type="checkbox" name="{{ item.name_product }}" value="{{ item.name_product }}">#}
+                                                </i>
+                                                {{ item.name_product }} | <i>price: {{ item.price }} byn</i>
+                                                <span>
+                                                    <input class="product_count" type="text" name={{ item.slug }} value={{ item.count }}>
+                                                    {#                    <input class="product_count" type="text" name="count" placeholder=1>#}
+                                                </span>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
 
