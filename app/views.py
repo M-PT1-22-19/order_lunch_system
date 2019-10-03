@@ -10,9 +10,14 @@ def add_item_to_order(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
+            product_uid = form.data['product_uid']
+            product = Product.objects.get(slug__iexact=product_uid)
             order = form.save(commit=False)
-            order.user = form.user
-            order.email = form.email
+            order.name_product = product
+            order.summary = order.count * product.price
+            order.comment = "введен при заказе"
+            order.save()
+
         return render(request, 'index.html', {'product_list': queryset})
     else:
         return render(request, 'index.html', {'product_list': queryset})
