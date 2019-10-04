@@ -4,16 +4,23 @@ import uuid
 
 # Create your models here.
 
+
 class Order(models.Model):
     published = models.DateTimeField(auto_now_add=True,
-                                     db_index=True, verbose_name='Дата/Время')
-    user = models.CharField(max_length=50, verbose_name='Имя')
+                                     db_index=True,
+                                     verbose_name='Дата/Время')
+    user = models.CharField(max_length=50,
+                            verbose_name='Имя')
     email = models.EmailField(verbose_name='Email')
-    name_product = models.ForeignKey('Product', related_name='product',
+    name_product = models.ForeignKey('Product',
+                                     related_name='product',
                                      verbose_name='Меню',
-                                     null=True, on_delete=models.CASCADE)
-    count = models.IntegerField(verbose_name='Количество', default=1)
-    summary = models.IntegerField(verbose_name='Оплачено', default=1)
+                                     null=True,
+                                     on_delete=models.CASCADE)
+    count = models.IntegerField(verbose_name='Количество',
+                                default=1)
+    summary = models.IntegerField(verbose_name='Оплачено',
+                                  default=1)
     comment = models.TextField(verbose_name='Комментарий')
 
     class Meta:
@@ -21,12 +28,15 @@ class Order(models.Model):
         verbose_name = 'Заказ'
         ordering = ['-published']
 
-class Product(models.Model):
-    slug = models.SlugField(max_length=200, unique=True, default=uuid.uuid1)
-    name_product = models.CharField(max_length=100)
-    count = models.IntegerField(verbose_name='Количество', default=1)
-    price = models.IntegerField(verbose_name='Цена, BYN')
 
+class Product(models.Model):
+    slug = models.SlugField(max_length=200,
+                            unique=True,
+                            default=uuid.uuid1)
+    name_product = models.CharField(max_length=100)
+    count = models.IntegerField(verbose_name='Количество',
+                                default=1)
+    price = models.IntegerField(verbose_name='Цена, BYN')
 
     def __str__(self):
         return self.name_product
@@ -34,12 +44,8 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Меню'
 
-class CheckList(models.Model):
-    customer = Order.user
-    product = Order.name_product
-    paid = Order.summary
-    comment = Order.comment
 
+# dima: i don't know why someone created this model, it dublicates existing model Order!
 class CheckList(models.Model):
     customer = Order.user
     product = Order.name_product
