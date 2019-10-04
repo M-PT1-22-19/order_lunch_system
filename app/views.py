@@ -19,7 +19,7 @@ def add_item_to_order(request):
             order.name_product = product
             order.count = product_count
             order.summary = product_count * product.price
-            # order.comment = "введен при заказе: " + order.comment
+            order.comment = "введен при заказе: " + order.comment
             order.save()
 
         return render(request, 'base.html', {'product_list': queryset})
@@ -30,6 +30,11 @@ def add_item_to_order(request):
 # show_checklist renamed to show_order_list
 def show_order_list(request):
     queryset = Order.objects.all()
+    total = 0
+    total_count = 0
+    for item in queryset:
+        total = total + item.summary
+        total_count = total_count + item.count
     ## added to comment, because there is no request yet
     # if request.method == "POST":
     #     form = CheckListform(request.POST)
@@ -41,7 +46,7 @@ def show_order_list(request):
     #         table.comment = form.comment
     #     return render(request, 'Order.html', {'order_list': queryset})
     # else:
-    return render(request, 'app/order_list.html', {'order_list': queryset})
+    return render(request, 'app/order_list.html', {'order_list': queryset, 'total': total, 'total_count': total_count})
 
 
 def register(request):

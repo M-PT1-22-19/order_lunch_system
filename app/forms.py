@@ -23,7 +23,7 @@ class OrderListForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('name_product', 'user', 'count', 'summary', 'comment',)
+        fields = ('name_product', 'count', 'summary', 'comment', 'user', 'email',)
 
 
 class AdminRegisterForm(UserCreationForm):

@@ -286,6 +286,20 @@ ul.menu_1_left_nav span{
 	border-left: none !important;
 	box-shadow: none !important;
 }
+/*моя добавка для order_list*/
+.order_list{
+	color: #000000 !important;
+	font-size: 18px;
+	background: rgba(255, 255, 255, 0.55); /* Цвет фона */
+	padding: 0 4px;
+}
+thead .order_list, tfoot .order_list{
+	border: 2px solid #fff;
+	text-align: center;
+}
+tbody .order_list{
+	border: 1px solid #fff;
+}
 span.menu_1_left i{
     padding: .5em;
     background-color: #f3a1a1;

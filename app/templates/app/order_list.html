@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!-- //for-mobile-apps -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="../../static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="../../static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- js -->
-    <script src="../static/js/jquery-1.11.1.min.js"></script>
+    <script src="../../static/js/jquery-1.11.1.min.js"></script>
     <!-- //js -->
     <!-- radio-buttons -->
-    <link rel="stylesheet" href="../static/css/sky-forms.css">
+    <link rel="stylesheet" href="../../static/css/sky-forms.css">
     <!-- //radio-buttons -->
     <link href='//fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,900,800' rel='stylesheet'
           type='text/css'>
@@ -21,182 +21,205 @@
 </head>
 <body>
     <!-- ui-kit -->
-<!--    <div class="ui-kit">-->
-<!--        <div class="container">-->
-<!--            <h1><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>Food<span>Menu</span></h1>-->
-<!--            <div class="ui-kit-grids">-->
-<!--                <div class="col-md-6 ui-kit-grid-left">-->
-<!--                    <div class="login-form">-->
-<!--                        <form method="POST">{% csrf_token %}-->
-<!--                            {{ form }}-->
-<!--                            <input type="text"-->
-<!--                                   name="user"-->
-<!--                                   value="user"-->
-<!--                                   onfocus="this.value = '';"-->
-<!--                                   onblur="if (this.value == '') {this.value = 'user';}"-->
-<!--                                   required="">-->
-<!--                            <input type="email"-->
-<!--                                   name="email"-->
-<!--                                   value="email"-->
-<!--                                   onfocus="this.value = '';"-->
-<!--                                   onblur="if (this.value == '') {this.value = 'email';}" required="">-->
-
-<!--                            <div class="ckeck-bg">-->
-<!--                                <div class="checkbox-form">-->
-<!--                                    <div class="check-left">-->
-<!--                                        <div class="check">-->
-<!--                                            <label class="checkbox">-->
-<!--                                                <input type="checkbox"-->
-<!--                                                       name="check_remember"-->
-<!--                                                       checked="">-->
-<!--                                                <i> </i>-->
-<!--                                                Remember me-->
-<!--                                            </label>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="check-right">-->
-<!--                                        <div class="check">-->
-<!--                                            <label class="checkbox">-->
-<!--                                                <input type="checkbox"-->
-<!--                                                       name="check_savepass"-->
-<!--                                                       checked="">-->
-<!--                                                <i> </i>-->
-<!--                                                Save Password-->
-<!--                                            </label>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="clearfix"></div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-
-<!--                            {#        Оставляем - основное меню            #}-->
-<!--                            <div class="men-icon">-->
-<!--                                <div class="menu-nav1">-->
-<!--                                    <span class="menu_1_left"><i class="glyphicon glyphicon-hand-right"-->
-<!--                                                                 aria-hidden="true"></i></span>-->
-<!--                                    <script>-->
-<!--                                        $("span.menu_1_left").click(function () {-->
-<!--                                            $("ul.menu_1_left_nav").slideToggle("slow", function () {-->
-<!--                                                // Animation complete.-->
-<!--                                            });-->
-<!--                                        });-->
-<!--                                    </script>-->
-<!--                                </div>-->
-<!--                                <p>MENU</p>-->
-<!--                                <div class="clearfix"></div>-->
-<!--                                <ul class="menu_1_left_nav">-->
-<!--                                    {#                                    {% block menu_and_order %}#}-->
-<!--                                    {#                                    {% endblock menu_and_order %}#}-->
-<!--                                    {% for item in product_list %}-->
-<!--                                        <li>-->
-<!--                                            <a href="#">-->
-<!--                                                {#                <i class="glyphicon glyphicon-unchecked">#}-->
-<!--                                                {#                </i>#}-->
-
-<!--                                                <i class="glyphicon">-->
-<!--                                                    <input type="checkbox" name="product_uid" value={{ item.slug }}>-->
-<!--                                                    {#                    <input type="checkbox" name="{{ item.name_product }}" value="{{ item.name_product }}">#}-->
-<!--                                                </i>-->
-<!--                                                {{ item.name_product }} | <i>price: {{ item.price }} byn</i>-->
-<!--                                                <span>-->
-<!--                                                    <input class="product_count" type="text" name={{ item.slug }} value={{ item.count }}>-->
-<!--                                                    {#                    <input class="product_count" type="text" name="count" placeholder=1>#}-->
-<!--                                                </span>-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                    {% endfor %}-->
-<!--                                </ul>-->
-<!--                            </div>-->
-
-<!--                            <input type="submit" value="SUBMIT">-->
-
-<!--                        </form>-->
-<!--                    </div>-->
-
-
-
-<!--                    {#      Оставляем варианты заказа         #}-->
-<!--                    <form action="" class="sky-form">-->
-<!--                        <section>-->
-<!--                            <div class="row">-->
-<!--                                <div class="colr ert">-->
-<!--                                    <label class="radio"><input type="radio" name="radio" checked=""><i></i>Доставка на дом</label>-->
-<!--                                </div>-->
-<!--                                <div class="colr">-->
-<!--                                    <label class="radio"><input type="radio" name="radio"><i></i>Заказазть столик</label>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </section>-->
-<!--                    </form>-->
-<!--                </div>-->
-
-<!--                <div class="col-md-6 ui-kit-grid-right">-->
-<!--                    <div class="login-form1">-->
-<!--                        <form>-->
-<!--                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span><input type="text"-->
-<!--                                                                                                    value="Name"-->
-<!--                                                                                                    onfocus="this.value = '';"-->
-<!--                                                                                                    onblur="if (this.value == '') {this.value = 'Name';}"-->
-<!--                                                                                                    required="">-->
-<!--                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><input type="email"-->
-<!--                                                                                                        value="Email Address"-->
-<!--                                                                                                        onfocus="this.value = '';"-->
-<!--                                                                                                        onblur="if (this.value == '') {this.value = 'Email Address';}"-->
-<!--                                                                                                        required="">-->
-<!--                        </form>-->
-<!--                        <div class="ckeck-bg log-check">-->
-<!--                            <div class="checkbox-form">-->
-<!--                                <div class="check-tick">-->
-<!--                                    <div class="check">-->
-<!--                                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Remember-->
-<!--                                            me</label>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <form>-->
-<!--                            <input type="submit" value="LOGIN">-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                    <div class="login-facebook">-->
-<!--                        <a href="#">Login with Facebook</a>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-
-
-
-<!--                <div class="clearfix"></div>-->
-<!--            </div>-->
-
-<!--            {#    оставляем: из-за ссылки на оплату        #}-->
-<!--            <div class="timothy-and-icons">-->
-<!--                <div class="timothy-and-icons-left">-->
-<!--                    <div class="bird-text-grid-left">-->
-
-<!--                    </div>-->
-<!--                    <div class="bird-text-grid-right">-->
-<!--                        <h2>timothy<a href="mailto:info@example.com">tim@example.com</a></h2>-->
-<!--                    </div>-->
-<!--                    <div class="clearfix"></div>-->
-<!--                </div>-->
-<!--                <div class="timothy-and-icons-right">-->
-<!--                    <ul>-->
-<!--                        <li><span class="glyphicon glyphicon-camera" aria-hidden="true"></span>Photos</li>-->
-<!--                        <li><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>Payment</li>-->
-<!--                        <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Events</li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div class="clearfix"></div>-->
-<!--            </div>-->
-
-<!--            {#      оставляем      #}-->
-<!--            <div class="footer-bottom">-->
-<!--                <p>Dream Team Project </p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    &lt;!&ndash; //ui-kit &ndash;&gt;-->
+    <div class="ui-kit">
+        <div class="container">
+            <h1><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i><span>Order</span>List</h1>
+{#            <div class="ui-kit-grids">#}
+{#                <div class="col-md-6 ui-kit-grid-left">#}
+{#                    <div class="login-form">#}
+{#                        <form method="POST">{% csrf_token %}#}
+{#                            {{ form }}#}
+{#                            <input type="text"#}
+{#                                   name="user"#}
+{#                                   value="user"#}
+{#                                   onfocus="this.value = '';"#}
+{#                                   onblur="if (this.value == '') {this.value = 'user';}"#}
+{#                                   required="">#}
+{#                            <input type="email"#}
+{#                                   name="email"#}
+{#                                   value="email"#}
+{#                                   onfocus="this.value = '';"#}
+{#                                   onblur="if (this.value == '') {this.value = 'email';}"#}
+{#                                   required="">#}
+{#                            <input type="text"#}
+{#                                   name="comment"#}
+{#                                   value="comment"#}
+{#                                   onfocus="this.value = '';"#}
+{#                                   onblur="if (this.value == '') {this.value = 'comment';}">#}
+{##}
+{#                            <div class="ckeck-bg">#}
+{#                                <div class="checkbox-form">#}
+{#                                    <div class="check-left">#}
+{#                                        <div class="check">#}
+{#                                            <label class="checkbox">#}
+{#                                                <input type="checkbox"#}
+{#                                                       name="check_remember"#}
+{#                                                       checked="">#}
+{#                                                <i> </i>#}
+{#                                                Remember me#}
+{#                                            </label>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <div class="check-right">#}
+{#                                        <div class="check">#}
+{#                                            <label class="checkbox">#}
+{#                                                <input type="checkbox"#}
+{#                                                       name="check_savepass"#}
+{#                                                       checked="">#}
+{#                                                <i> </i>#}
+{#                                                Save Password#}
+{#                                            </label>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                    <div class="clearfix"></div>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+                            {#        Оставляем - основное меню            #}
+{#                            <div class="men-icon">#}
+{#                                <div class="menu-nav1">#}
+{#                                    <span class="menu_1_left"><i class="glyphicon glyphicon-hand-right"#}
+{#                                                                 aria-hidden="true"></i></span>#}
+{#                                    <script>#}
+{#                                        $("span.menu_1_left").click(function () {#}
+{#                                            $("ul.menu_1_left_nav").slideToggle("slow", function () {#}
+{#                                                // Animation complete.#}
+{#                                            });#}
+{#                                        });#}
+{#                                    </script>#}
+{#                                </div>#}
+{#                                <p>Orders</p>#}
+{#                                <div class="clearfix"></div>#}
+{#                                <ul class="menu_1_left_nav">#}
+                                    {#                                    {% block menu_and_order %}#}
+                                    {#                                    {% endblock menu_and_order %}#}
+                                    {{ form }}
+                                    <table class="order_list">
+                                        <thead>
+                                            <tr>
+                                                <td class="order_list">Product</td>
+                                                <td class="order_list">Count</td>
+                                                <td class="order_list">Summary</td>
+                                                <td class="order_list">Comment</td>
+                                                <td class="order_list">User</td>
+                                                <td class="order_list">email</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for item in order_list %}
+                                                <tr>
+                                                    <td class="order_list">{{ item.name_product }}</td>
+                                                    <td class="order_list">{{ item.count }}</td>
+                                                    <td class="order_list">{{ item.summary }}</td>
+                                                    <td class="order_list">{{ item.comment }}</td>
+                                                    <td class="order_list">{{ item.user }}</td>
+                                                    <td class="order_list">{{ item.email }}</td>
+                                                </tr>
+                                            {% endfor %} <!--order list end-->
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td class="order_list">Total:</td>
+                                                <td class="order_list">{{ total_count }}</td>
+                                                <td class="order_list">{{ total }}</td>
+                                                <td class="order_list"></td>
+                                                <td class="order_list"></td>
+                                                <td class="order_list"></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+{#                                </ul>#}
+{#                            </div>#}
+{##}
+{#                            <input type="submit" value="SUBMIT">#}
+{#                        #}
+{#                        </form>#}
+{#                    </div>#}
+{##}
+{##}
+{##}
+                    {#      Оставляем варианты заказа         #}
+{#                    <form action="" class="sky-form">#}
+{#                        <section>#}
+{#                            <div class="row">#}
+{#                                <div class="colr ert">#}
+{#                                    <label class="radio"><input type="radio" name="radio" checked=""><i></i>Доставка на дом</label>#}
+{#                                </div>#}
+{#                                <div class="colr">#}
+{#                                    <label class="radio"><input type="radio" name="radio"><i></i>Заказазть столик</label>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </section>#}
+{#                    </form>#}
+{#                </div>#}
+{##}
+{#                <div class="col-md-6 ui-kit-grid-right">#}
+{#                    <div class="login-form1">#}
+{#                        <form>#}
+{#                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span><input type="text"#}
+{#                                                                                                    value="Name"#}
+{#                                                                                                    onfocus="this.value = '';"#}
+{#                                                                                                    onblur="if (this.value == '') {this.value = 'Name';}"#}
+{#                                                                                                    required="">#}
+{#                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><input type="email"#}
+{#                                                                                                        value="Email Address"#}
+{#                                                                                                        onfocus="this.value = '';"#}
+{#                                                                                                        onblur="if (this.value == '') {this.value = 'Email Address';}"#}
+{#                                                                                                        required="">#}
+{#                        </form>#}
+{#                        <div class="ckeck-bg log-check">#}
+{#                            <div class="checkbox-form">#}
+{#                                <div class="check-tick">#}
+{#                                    <div class="check">#}
+{#                                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Remember#}
+{#                                            me</label>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <form>#}
+{#                            <input type="submit" value="LOGIN">#}
+{#                        </form>#}
+{#                    </div>#}
+{#                    <div class="login-facebook">#}
+{#                        <a href="#">Login with Facebook</a>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{##}
+{##}
+{##}
+{#                <div class="clearfix"></div>#}
+{#            </div>#}
+{##}
+            {#    оставляем: из-за ссылки на оплату        #}
+{#            <div class="timothy-and-icons">#}
+{#                <div class="timothy-and-icons-left">#}
+{#                    <div class="bird-text-grid-left">#}
+{##}
+{#                    </div>#}
+{#                    <div class="bird-text-grid-right">#}
+{#                        <h2>timothy<a href="mailto:info@example.com">tim@example.com</a></h2>#}
+{#                    </div>#}
+{#                    <div class="clearfix"></div>#}
+{#                </div>#}
+{#                <div class="timothy-and-icons-right">#}
+{#                    <ul>#}
+{#                        <li><span class="glyphicon glyphicon-camera" aria-hidden="true"></span>Photos</li>#}
+{#                        <li><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>Payment</li>#}
+{#                        <li><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Events</li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#                <div class="clearfix"></div>#}
+{#            </div>#}
+{##}
+            {#      оставляем      #}
+{#            <div class="footer-bottom">#}
+{#                <p>Dream Team Project </p>#}
+            </div>
+        </div>
+    </div>
+    <!-- //ui-kit -->
 </body>
 
 </html>

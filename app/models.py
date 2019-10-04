@@ -43,6 +43,7 @@ class Product(models.Model):
 
     class Meta:
         verbose_name = 'Меню'
+        verbose_name_plural = 'Меню'
 
 
 # dima: i don't know why someone created this model, it dublicates existing model Order!
