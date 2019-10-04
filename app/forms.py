@@ -15,14 +15,15 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('user', 'email',)
+        fields = ('user', 'email', 'comment',)
 
 
-class CheckListForm(forms.ModelForm):
+# CheckListForm renamed to OrderListForm
+class OrderListForm(forms.ModelForm):
 
     class Meta:
         model = Order
-        fields = ('name_product', 'user', 'summary', 'comment',)
+        fields = ('name_product', 'user', 'count', 'summary', 'comment',)
 
 
 class AdminRegisterForm(UserCreationForm):
