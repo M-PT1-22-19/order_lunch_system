@@ -24,7 +24,7 @@
     <div class="ui-kit">
         <div class="container">
             <h1><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i><span>Order</span>List</h1>
-
+{#            {% if user.is_authenticated %}#}
             {{ form }}
             <table class="order_list">
                 <thead>
@@ -60,7 +60,7 @@
                 </tr>
                 </tfoot>
             </table>
-
+{#        {% endif %}#}
         </div>
     </div>
     </div>
