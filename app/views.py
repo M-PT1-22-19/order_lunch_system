@@ -3,11 +3,17 @@ from app.models import Product, Order#, CheckList
 from .forms import OrderForm, OrderListForm, AdminRegisterForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.utils import timezone
+from datetime import datetime
 
 # Creating views here
+now = timezone.now()
+# currentDT = datetime.datetime.now()
+
 
 
 def add_item_to_order(request):
+    hour = int(datetime.strftime(datetime.now(), "%H"))
     queryset = Product.objects.all()
     if request.method == "POST":
         form = OrderForm(request.POST)
@@ -24,7 +30,7 @@ def add_item_to_order(request):
 
         return render(request, 'base.html', {'product_list': queryset})
     else:
-        return render(request, 'base.html', {'product_list': queryset})
+        return render(request, 'base.html', {'product_list': queryset, 'hour': hour})
 
 
 # show_checklist renamed to show_order_list

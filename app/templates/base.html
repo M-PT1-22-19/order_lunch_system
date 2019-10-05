@@ -18,6 +18,7 @@
           type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
           rel='stylesheet' type='text/css'>
+
 </head>
 <body>
     <!-- ui-kit -->
@@ -27,21 +28,22 @@
             <div class="ui-kit-grids">
                 <div class="col-md-6 ui-kit-grid-left">
                     <div class="login-form">
+
                         <form method="POST">{% csrf_token %}
                             {{ form }}
-                            <input type="text"
+                            <input type="text" {% if 13 < hour < 15 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
                                    name="user"
                                    value="user"
                                    onfocus="this.value = '';"
                                    onblur="if (this.value == '') {this.value = 'user';}"
-                                   required="">
-                            <input type="email"
+                                   required="" >
+                            <input type="email" {% if 13 < hour < 15 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
                                    name="email"
                                    value="email"
                                    onfocus="this.value = '';"
                                    onblur="if (this.value == '') {this.value = 'email';}"
                                    required="">
-                            <input type="text"
+                            <input type="text" {% if 13 < hour < 15 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
                                    name="comment"
                                    value="comment"
                                    onfocus="this.value = '';"
@@ -114,8 +116,7 @@
                                 </ul>
                             </div>
 
-                            <input type="submit" value="SUBMIT">
-                        
+                            <input type="submit" value="SUBMIT" {% if 13 < hour < 15 %} disabled {% endif %}>
                         </form>
                     </div>
 
