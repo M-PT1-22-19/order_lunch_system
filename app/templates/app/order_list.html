@@ -24,43 +24,43 @@
     <div class="ui-kit">
         <div class="container">
             <h1><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i><span>Order</span>List</h1>
-{#            {% if user.is_authenticated %}#}
-            {{ form }}
-            <table class="order_list">
-                <thead>
-                <tr>
-                    <td class="order_list">Product</td>
-                    <td class="order_list">Count</td>
-                    <td class="order_list">Summary</td>
-                    <td class="order_list">Comment</td>
-                    <td class="order_list">User</td>
-                    <td class="order_list">email</td>
-                </tr>
-                </thead>
-                <tbody>
-                {% for item in order_list %}
+            {% if user.is_authenticated %}
+                {{ form }}
+                <table class="order_list">
+                    <thead>
                     <tr>
-                        <td class="order_list"><a href="">{{ item.name_product }}</a></td>
-                        <td class="order_list">{{ item.count }}</td>
-                        <td class="order_list">{{ item.summary }}</td>
-                        <td class="order_list">{{ item.comment }}</td>
-                        <td class="order_list">{{ item.user }}</td>
-                        <td class="order_list">{{ item.email }}</td>
+                        <td class="order_list">Product</td>
+                        <td class="order_list">Count</td>
+                        <td class="order_list">Summary</td>
+                        <td class="order_list">Comment</td>
+                        <td class="order_list">User</td>
+                        <td class="order_list">email</td>
                     </tr>
-                {% endfor %} <!--order list end-->
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td class="order_list">Total:</td>
-                    <td class="order_list">{{ total_count }}</td>
-                    <td class="order_list">{{ total }}</td>
-                    <td class="order_list"></td>
-                    <td class="order_list"></td>
-                    <td class="order_list"></td>
-                </tr>
-                </tfoot>
-            </table>
-{#        {% endif %}#}
+                    </thead>
+                    <tbody>
+                    {% for item in order_list %}
+                        <tr>
+                            <td class="order_list"><a href="">{{ item.name_product }}</a></td>
+                            <td class="order_list">{{ item.count }}</td>
+                            <td class="order_list">{{ item.summary }}</td>
+                            <td class="order_list">{{ item.comment }}</td>
+                            <td class="order_list">{{ item.user }}</td>
+                            <td class="order_list">{{ item.email }}</td>
+                        </tr>
+                    {% endfor %} <!--order list end-->
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td class="order_list">Total:</td>
+                        <td class="order_list">{{ total_count }}</td>
+                        <td class="order_list">{{ total }}</td>
+                        <td class="order_list"></td>
+                        <td class="order_list"></td>
+                        <td class="order_list"></td>
+                    </tr>
+                    </tfoot>
+                </table>
+            {% endif %}
         </div>
     </div>
     </div>
