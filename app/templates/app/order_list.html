@@ -40,7 +40,7 @@
                     <tbody>
                     {% for item in order_list %}
                         <tr>
-                            <td class="order_list"><a href="">{{ item.name_product }}</a></td>
+                            <td class="order_list"><a href="{{ item.get_change_url }}">{{ item.name_product }}</a></td>
                             <td class="order_list">{{ item.count }}</td>
                             <td class="order_list">{{ item.summary }}</td>
                             <td class="order_list">{{ item.comment }}</td>

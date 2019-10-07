@@ -15,6 +15,10 @@ class Order(models.Model):
     summary = models.IntegerField(verbose_name='Оплачено', default=1)
     comment = models.TextField(verbose_name='Комментарий')
 
+    def get_change_url(self):
+        url = 'http://127.0.0.1:8000/admin/app/order/' + str(self.id) + '/change/'
+        return url
+
     class Meta:
         verbose_name_plural = 'Заказы'
         verbose_name = 'Заказ'
@@ -36,8 +40,15 @@ class Product(models.Model):
 
 
 # dima: i don't know why someone created this model, it dublicates existing model Order!
-class CheckList(models.Model):
-    customer = Order.user
-    product = Order.name_product
-    paid = Order.summary
-    comment = Order.comment
+# class CheckList(models.Model):
+#     # slug = models.SlugField(max_length=200, unique=True, default=uuid.uuid1)
+#     customer = Order.user
+#     product = Order.name_product
+#     paid = Order.summary
+#     comment = Order.comment
+
+    # def __str__(self):
+    #     return self.customer
+
+    # def get_absolute_url(self):
+    #     return reverse('order_list', kwargs={'customer': self.customer})
