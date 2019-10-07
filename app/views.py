@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from app.models import Product, Order#, CheckList
+from app.models import Product, Order
 from .forms import OrderForm, OrderListForm, AdminRegisterForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
@@ -10,7 +10,6 @@ from datetime import datetime
 # Creating views here
 now = timezone.now()
 # currentDT = datetime.datetime.now()
-
 
 
 def add_item_to_order(request):

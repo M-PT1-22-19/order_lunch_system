@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Order, CheckList
+from .models import Product, Order
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
