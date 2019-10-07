@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from app.models import Product, Order#, CheckList
 from .forms import OrderForm, OrderListForm, AdminRegisterForm
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.utils import timezone
 from datetime import datetime
@@ -57,12 +58,18 @@ def show_order_list(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = AdminRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
-            return redirect('/order_list')
+            if request.user.is_authenticated:
+                return redirect('/order_list')
+            else:
+                return redirect('/login')
     else:
-        form = AdminRegisterForm()
-    return render(request, 'app/register.html', {'form': form})
+        if request.user.is_authenticated:
+            return redirect('/order_list')
+        else:
+            form = AdminRegisterForm()
+            return render(request, 'registration/register.html', {'form': form})
