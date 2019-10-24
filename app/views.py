@@ -66,6 +66,8 @@ def register(request):
                 return redirect('/order_list')
             else:
                 return redirect('/login')
+        else:
+            return render(request, 'registration/register.html', {'form': form})
     else:
         if request.user.is_authenticated:
             return redirect('/order_list')
