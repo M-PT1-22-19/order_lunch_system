@@ -30,29 +30,37 @@ def add_item_to_order(request):
 
         return render(request, 'base.html', {'product_list': queryset})
     else:
-        return render(request, 'base.html', {'product_list': queryset, 'hour': hour})
+        if request.user.is_authenticated:
+            return redirect('/order_list')
+        else:
+            return render(request, 'base.html', {'product_list': queryset, 'hour': hour})
 
 
 # show_checklist renamed to show_order_list
 def show_order_list(request):
-    queryset = Order.objects.all()
-    total = 0
-    total_count = 0
-    for item in queryset:
-        total = total + item.summary
-        total_count = total_count + item.count
-    ## added to comment, because there is no request yet
-    # if request.method == "POST":
-    #     form = CheckListform(request.POST)
-    #     if form.is_valid():
-    #         table = form.save(commit=False)
-    #         table.user = form.user
-    #         table.name_product = form.name_product
-    #         table.summary = form.summary
-    #         table.comment = form.comment
-    #     return render(request, 'Order.html', {'order_list': queryset})
-    # else:
-    return render(request, 'app/order_list.html', {'order_list': queryset, 'total': total, 'total_count': total_count})
+    if request.user.is_authenticated:
+        queryset = Order.objects.all()
+        total = 0
+        total_count = 0
+        for item in queryset:
+            total = total + item.summary
+            total_count = total_count + item.count
+
+        ## added to comment, because there is no request yet
+        # if request.method == "POST":
+        #     form = CheckListform(request.POST)
+        #     if form.is_valid():
+        #         table = form.save(commit=False)
+        #         table.user = form.user
+        #         table.name_product = form.name_product
+        #         table.summary = form.summary
+        #         table.comment = form.comment
+        #     return render(request, 'Order.html', {'order_list': queryset})
+        # else:
+
+        return render(request, 'app/order_list.html', {'order_list': queryset, 'total': total, 'total_count': total_count})
+    else:
+        return redirect('home')
 
 
 def register(request):
