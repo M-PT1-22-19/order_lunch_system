@@ -56,7 +56,6 @@ def register(request):
             return render(request, 'registration/register.html', {'form': form})
 
 
-
 # show_checklist renamed to show_order_list
 def show_order_list(request):
     if request.user.is_authenticated:
@@ -70,11 +69,3 @@ def show_order_list(request):
                                                        'total_count': total_count})
     else:
         return redirect('/register')
-
-
-def logout_view(request):
-    x = request.user.is_authenticated
-    if logout(request=True):
-        x = False
-        return redirect('/home')
-

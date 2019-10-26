@@ -126,7 +126,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'app/templates'),)
 
 
-#Other
+# Registration urls
 
 LOGOUT_REDIRECT_URL = 'home'
+
 LOGIN_REDIRECT_URL = 'order_list'

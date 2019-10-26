@@ -61,11 +61,10 @@
                     </tfoot>
                 </table>
 
-{#                <div class="login-form1">#}
-                    <form>
+                <form>
                     <input type="submit" formaction="{% url 'logout' %}?next={{ request.path }}" value="LOGOUT">
-                    </form>
-{#                </div>#}
+                </form>
+
             {% endif %}
         </div>
     </div>
