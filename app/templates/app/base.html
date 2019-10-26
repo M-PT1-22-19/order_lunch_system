@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!-- //for-mobile-apps -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="../static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="../../static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="../../static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- js -->
-    <script src="../static/js/jquery-1.11.1.min.js"></script>
+    <script src="../../static/js/jquery-1.11.1.min.js"></script>
     <!-- //js -->
     <!-- radio-buttons -->
-    <link rel="stylesheet" href="../static/css/sky-forms.css">
+    <link rel="stylesheet" href="../../static/css/sky-forms.css">
     <!-- //radio-buttons -->
     <link href='//fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,900,800' rel='stylesheet'
           type='text/css'>
@@ -31,19 +31,19 @@
 
                         <form method="POST">{% csrf_token %}
                             {{ form }}
-                            <input type="text" {% if 13 < hour < 15 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
+                            <input type="text" {% if hour < 6 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
                                    name="user"
                                    value="user"
                                    onfocus="this.value = '';"
                                    onblur="if (this.value == '') {this.value = 'user';}"
                                    required="" >
-                            <input type="email" {% if 13 < hour < 15 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
+                            <input type="email" {% if hour < 6 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
                                    name="email"
                                    value="email"
                                    onfocus="this.value = '';"
                                    onblur="if (this.value == '') {this.value = 'email';}"
                                    required="">
-                            <input type="text" {% if 13 < hour < 15 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
+                            <input type="text" {% if hour < 6 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
                                    name="comment"
                                    value="comment"
                                    onfocus="this.value = '';"
@@ -116,7 +116,7 @@
                                 </ul>
                             </div>
 
-                            <input type="submit" value="SUBMIT" {% if 13 < hour < 15 %} disabled {% endif %}>
+                            <input type="submit" value="SUBMIT" {% if hour < 6 %} disabled {% endif %}>
                         </form>
                     </div>
 

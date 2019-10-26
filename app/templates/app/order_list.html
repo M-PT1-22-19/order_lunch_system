@@ -63,10 +63,9 @@
 
 {#                <div class="login-form1">#}
                     <form>
-                        <input type="submit" formaction="{% url 'logout' %}?next={{ request.path }}" value="LOGOUT">
+                    <input type="submit" formaction="{% url 'logout' %}?next={{ request.path }}" value="LOGOUT">
                     </form>
 {#                </div>#}
-
             {% endif %}
         </div>
     </div>
