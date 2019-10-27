@@ -37,18 +37,3 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Меню'
         verbose_name_plural = 'Меню'
-
-
-# dima: i don't know why someone created this model, it dublicates existing model Order!
-# class CheckList(models.Model):
-#     # slug = models.SlugField(max_length=200, unique=True, default=uuid.uuid1)
-#     customer = Order.user
-#     product = Order.name_product
-#     paid = Order.summary
-#     comment = Order.comment
-
-    # def __str__(self):
-    #     return self.customer
-
-    # def get_absolute_url(self):
-    #     return reverse('order_list', kwargs={'customer': self.customer})
