@@ -36,13 +36,13 @@
                                    value="user"
                                    onfocus="this.value = '';"
                                    onblur="if (this.value == '') {this.value = 'user';}"
-                                   required="" >
+                                   required>
                             <input type="email" {% if hour < 6 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
                                    name="email"
                                    value="email"
                                    onfocus="this.value = '';"
                                    onblur="if (this.value == '') {this.value = 'email';}"
-                                   required="">
+                                   required>
                             <input type="text" {% if hour < 6 %} disabled value="Заказы принимаются с 13.00 до 15.00" {% endif %}
                                    name="comment"
                                    value="comment"

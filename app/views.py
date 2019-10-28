@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.utils.datastructures import MultiValueDictKeyError
 from app.models import Product, Order
 from .forms import OrderForm, AdminRegisterForm
 from django.contrib import messages
@@ -20,15 +21,18 @@ def add_item_to_order(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
-            product_uid = form.data['product_uid']
-            product_count = int(request.POST[product_uid])
-            product = Product.objects.get(slug__iexact=product_uid)
-            order = form.save(commit=False)
-            order.name_product = product
-            order.count = product_count
-            order.summary = product_count * product.price
-            order.comment = "" + order.comment
-            order.save()
+            try:
+                product_uid = form.data['product_uid']
+                product_count = int(request.POST[product_uid])
+                product = Product.objects.get(slug__iexact=product_uid)
+                order = form.save(commit=False)
+                order.name_product = product
+                order.count = product_count
+                order.summary = product_count * product.price
+                order.comment = "" + order.comment
+                order.save()
+            except MultiValueDictKeyError:
+                return redirect('home')
 
         return render(request, 'app/base.html', {'product_list': queryset})
     else:
