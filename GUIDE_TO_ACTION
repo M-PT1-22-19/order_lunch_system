@@ -1,0 +1,1 @@
+Before a testing our application, you have to create a "superuser" and add some quantity products in django-admin.
