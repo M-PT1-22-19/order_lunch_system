@@ -1,5 +1,5 @@
 users
-Django==2.2.5
+Django==2.2.21
 pytz==2019.2
 sqlparse==0.3.0
 django-crispy-forms==1.7.2
